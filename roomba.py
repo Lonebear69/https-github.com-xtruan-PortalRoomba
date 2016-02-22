@@ -379,17 +379,17 @@ if __name__ == "__main__":
         verbose = True
 
     if verbose:
-        sys.stdout.write("Connecting to the Rootooth ... ")
-        sys.stdout.flush()
+        #sys.stdout.write("Connecting to the Rootooth ... ")
+        #sys.stdout.flush()
     roomba = RoombaAPI(RFCOMM_DEV, RFCOMM_BAUDRATE)
     if verbose:
-        sys.stdout.write("OK\n")
+        #sys.stdout.write("OK\n")
 
     try:
         if verbose:
-            sys.stdout.write("Rootooth version: ")
-            sys.stdout.flush()
-            sys.stdout.write(roomba.rootoothVersion + "\n")
+            #sys.stdout.write("Rootooth version: ")
+            #sys.stdout.flush()
+            #sys.stdout.write(roomba.rootoothVersion + "\n")
 
         if verbose:
             sys.stdout.write("Connecting to the Roomba ... ")
