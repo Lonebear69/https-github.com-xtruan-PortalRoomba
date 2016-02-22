@@ -372,22 +372,22 @@ class RoombaAPI(object):
         # this information, so we will just assume the user already set it right
         self.wakeup()
 
-    def __rootoothVersion(self):
-        self.port.write("$$$")
-        self.port.readline()  # read 'CMD'
+    #def __rootoothVersion(self):
+    #    self.port.write("$$$")
+    #    self.port.readline()  # read 'CMD'
 
-        self.port.write("V\n")
-        s = self.port.readline()
-        s = s.strip()
-        # skip the copyright info. we already know about it
-        self.port.readline()
+    #    self.port.write("V\n")
+    #    s = self.port.readline()
+    #    s = s.strip()
+    #    # skip the copyright info. we already know about it
+    #    self.port.readline()
 
-        self.port.write("---\n")
-        self.port.readline()  # read 'END'
+    #    self.port.write("---\n")
+    #    self.port.readline()  # read 'END'
 
-        return s
+    #    return s
 
-    rootoothVersion = property(__rootoothVersion)
+    #rootoothVersion = property(__rootoothVersion)
 
     def __isconnected(self):
         return self.port.isopen()
@@ -395,17 +395,17 @@ class RoombaAPI(object):
     isconnected = property(__isconnected)
 
     def wakeup(self):
-        self.port.read()
-        self.port.write("$$$")
-        self.port.readline()  # read 'CMD'
-        self.port.write("S@,8080\n")
-        self.port.readline()  # read 'AOK'
-        self.port.write("S&,8000\n")
-        self.port.readline()  # read 'AOK'
-        self.port.write("S&,8080\n")
-        self.port.readline()  # read 'AOK'
-        self.port.write("---\n")
-        self.port.readline()  # read 'END'
+        #self.port.read()
+        #self.port.write("$$$")
+        #self.port.readline()  # read 'CMD'
+        #self.port.write("S@,8080\n")
+        #self.port.readline()  # read 'AOK'
+        #self.port.write("S&,8000\n")
+        #self.port.readline()  # read 'AOK'
+        #self.port.write("S&,8080\n")
+        #self.port.readline()  # read 'AOK'
+        #self.port.write("---\n")
+        #self.port.readline()  # read 'END'
         self.start()
 
     def close(self):
