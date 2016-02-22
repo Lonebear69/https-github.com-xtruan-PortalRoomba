@@ -543,7 +543,7 @@ class RoombaAPI(object):
         
         # hack to fix length issue
         while (x < 26):
-		    data.append(0)
+            data.append(0)
             x = x + 1
         
         return SensorData(data)
