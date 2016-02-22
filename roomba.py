@@ -378,18 +378,18 @@ if __name__ == "__main__":
         orders.remove("-v")
         verbose = True
 
-    if verbose:
-        #sys.stdout.write("Connecting to the Rootooth ... ")
-        #sys.stdout.flush()
+    #if verbose:
+    #    sys.stdout.write("Connecting to the Rootooth ... ")
+    #    sys.stdout.flush()
     roomba = RoombaAPI(RFCOMM_DEV, RFCOMM_BAUDRATE)
-    if verbose:
-        #sys.stdout.write("OK\n")
+    #if verbose:
+    #    sys.stdout.write("OK\n")
 
     try:
-        if verbose:
-            #sys.stdout.write("Rootooth version: ")
-            #sys.stdout.flush()
-            #sys.stdout.write(roomba.rootoothVersion + "\n")
+        #if verbose:
+        #    sys.stdout.write("Rootooth version: ")
+        #    sys.stdout.flush()
+        #    sys.stdout.write(roomba.rootoothVersion + "\n")
 
         if verbose:
             sys.stdout.write("Connecting to the Roomba ... ")
