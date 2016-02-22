@@ -527,6 +527,7 @@ class RoombaAPI(object):
         ])
         self.port.flush()
         s = self.port.read(26)
+		print "sensors: " + str(s)
         if len(s) < 26:
             return None
         if len(s) > 26:
