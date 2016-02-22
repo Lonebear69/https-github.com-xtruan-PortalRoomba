@@ -540,7 +540,7 @@ class RoombaAPI(object):
         while(x < end):
             data.append(ord(output[x]))
             x = x + 1
-        print "sensors: " + data
+        print "sensors: " + str(data)
         # hack to fix length issue
         while (x < 26):
             data.append(0)
