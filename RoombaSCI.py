@@ -525,7 +525,7 @@ class RoombaAPI(object):
             142,
             0
         ])
-        self.port.flush()
+        #self.port.flush()
         s = self.port.read(26)
         #print "sensors: " + str(s)
         print "sensors len: " + str(len(str(s)))
