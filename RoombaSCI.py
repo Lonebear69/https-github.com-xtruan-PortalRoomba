@@ -361,7 +361,7 @@ class RoombaAPI(object):
         # connection settings
         self.port.port = port
         self.port.baudrate = baudrate
-        self.port.timeout = 100
+        self.port.timeout = 10
         if not self.port.isOpen():
             self.port.open()
 
@@ -525,7 +525,8 @@ class RoombaAPI(object):
             142,
             0
         ])
-        #self.port.flush()
+        self.port.flush()
+		time.sleep(1)
         s = self.port.read(26)
         #print "sensors: " + str(s)
         print "sensors len: " + str(len(str(s)))
