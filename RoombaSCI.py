@@ -575,7 +575,7 @@ if __name__ == "__main__":
         port = sys.argv[1]
 
     if (len(sys.argv) < 3):
-        baudrate = 115200
+        baudrate = 19200
     else:
         baudrate = int(sys.argv[2])
 

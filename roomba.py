@@ -8,7 +8,7 @@ import termios
 import time
 
 RFCOMM_DEV = os.getenv("ROOMBA_RFCOMM", "/dev/ttyS0")
-RFCOMM_BAUDRATE = os.getenv("ROOMBA_BAUDRATE", 115200)
+RFCOMM_BAUDRATE = os.getenv("ROOMBA_BAUDRATE", 19200)
 
 ANSI_RED = '\033[31m'
 ANSI_YELLOW = '\033[33m'
