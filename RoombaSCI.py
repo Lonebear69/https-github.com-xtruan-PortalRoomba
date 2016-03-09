@@ -8,6 +8,7 @@
 import serial
 import sys
 import time
+import threading
 from cStringIO import StringIO
 
 
@@ -521,13 +522,21 @@ class RoombaAPI(object):
 
     def __sensors(self):
         self.port.flushInput()
+        self.port.flush()
+        
+        s = []
+        
+        thread = threading.Thread(target=read_from_port, args=(self.port,s,))
+        thread.start()
+        
         self.send_to_roomba([
             142,
             0
         ])
-        self.port.flush()
-        time.sleep(1)
-        s = self.port.read(26)
+        
+        thread.join()
+        
+        #s = self.port.read(26)
         #print "sensors: " + str(s)
         print "sensors len: " + str(len(str(s)))
         #if len(s) < 26:
@@ -551,6 +560,8 @@ class RoombaAPI(object):
 
     sensors = property(__sensors)
 
+    def read_from_port(port, s):
+        s = port.read(26)
 
 if __name__ == "__main__":
     # example
