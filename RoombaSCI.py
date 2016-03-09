@@ -361,7 +361,7 @@ class RoombaAPI(object):
         # connection settings
         self.port.port = port
         self.port.baudrate = baudrate
-        self.port.timeout = 10
+        self.port.timeout = 100
         if not self.port.isOpen():
             self.port.open()
 
