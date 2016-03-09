@@ -8,7 +8,7 @@
 import serial
 import sys
 import time
-import threading
+from multiprocessing.pool import ThreadPool
 from cStringIO import StringIO
 
 
@@ -524,17 +524,16 @@ class RoombaAPI(object):
         self.port.flushInput()
         self.port.flush()
         
-        s = []
+        pool = ThreadPool(processes=1)
         
-        thread = threading.Thread(target=self.read_from_port, args=(self.port,s,))
-        thread.start()
+        async_result = pool.apply_async(self.read_from_port, (self.port,))
         
         self.send_to_roomba([
             142,
             0
         ])
         
-        thread.join()
+        s = async_result.get()
         
         #s = self.port.read(26)
         #print "sensors: " + str(s)
@@ -560,8 +559,9 @@ class RoombaAPI(object):
 
     sensors = property(__sensors)
 
-    def read_from_port(self, port, s):
+    def read_from_port(self, port):
         s = port.read(26)
+        return s
 
 if __name__ == "__main__":
     # example
