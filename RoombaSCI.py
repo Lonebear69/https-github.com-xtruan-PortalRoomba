@@ -526,7 +526,7 @@ class RoombaAPI(object):
         
         s = []
         
-        thread = threading.Thread(target=self.read_from_port, args=(self.port,s,))
+        thread = threading.Thread(target=self.read_from_port, args=(self.port,s))
         thread.start()
         
         self.send_to_roomba([
