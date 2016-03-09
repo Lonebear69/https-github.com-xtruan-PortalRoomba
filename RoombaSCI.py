@@ -526,7 +526,7 @@ class RoombaAPI(object):
         
         s = []
         
-        thread = threading.Thread(target=self.read_from_port, args=(self.port,s))
+        thread = threading.Thread(target=self.read_from_port, args=(self.port,s,))
         thread.start()
         
         self.send_to_roomba([
@@ -560,7 +560,7 @@ class RoombaAPI(object):
 
     sensors = property(__sensors)
 
-    def read_from_port(port, s):
+    def read_from_port(self, port, s):
         s = port.read(26)
 
 if __name__ == "__main__":
