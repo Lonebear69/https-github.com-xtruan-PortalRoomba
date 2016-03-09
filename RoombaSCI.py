@@ -526,7 +526,7 @@ class RoombaAPI(object):
             0
         ])
         self.port.flush()
-		time.sleep(1)
+        time.sleep(1)
         s = self.port.read(26)
         #print "sensors: " + str(s)
         print "sensors len: " + str(len(str(s)))
