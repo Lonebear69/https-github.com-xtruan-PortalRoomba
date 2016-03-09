@@ -527,6 +527,7 @@ class RoombaAPI(object):
         pool = ThreadPool(processes=1)
         
         async_result = pool.apply_async(self.read_from_port, (self.port,))
+        time.sleep(1)
         
         self.send_to_roomba([
             142,
