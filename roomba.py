@@ -475,6 +475,11 @@ if __name__ == "__main__":
                 cliffSounds = glob.glob("sounds/cliff/*.wav")
                 bumpSounds = glob.glob("sounds/bump/*.wav")
                 dirtSounds = glob.glob("sounds/dirtdetect/*.wav")
+                startSounds = glob.glob("sounds/start/*.wav")
+                
+                call(["aplay",random.choice(startSounds),"-T","3000000"])
+                time.sleep(2)
+                
                 while True:
                     sensors = roomba.sensors
                     print ANSI_CLEAR
@@ -497,8 +502,8 @@ if __name__ == "__main__":
                         print "dirt detect - " + sound
                     
                     if sound is not None:
-                        call(["aplay",sound,"-T","2000000"])
-                        time.sleep(5)
+                        call(["aplay",sound,"-T","3000000"])
+                        time.sleep(2)
                         
                     if not sys.stdout.isatty():
                         time.sleep(1)
