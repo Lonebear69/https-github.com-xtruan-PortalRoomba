@@ -527,8 +527,7 @@ class RoombaAPI(object):
         ])
         self.port.flush()
         s = self.port.read(26)
-        #print "sensors: " + str(s)
-        print "sensors len: " + str(len(str(s)))
+        #print "sensors len: " + str(len(str(s)))
         #if len(s) < 26:
         #    return None
         if len(s) > 26:
@@ -540,8 +539,8 @@ class RoombaAPI(object):
         while(x < end):
             data.append(ord(output[x]))
             x = x + 1
-        print "sensors: " + str(data)
-        # hack to fix length issue
+        #print "sensors: " + str(data)
+        # hack to bypass length issue
         while (x < 26):
             data.append(0)
             x = x + 1

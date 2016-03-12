@@ -7,6 +7,8 @@ import sys
 from subprocess import call
 import termios
 import time
+import glob
+import random
 
 RFCOMM_DEV = os.getenv("ROOMBA_RFCOMM", "/dev/ttyS0")
 RFCOMM_BAUDRATE = os.getenv("ROOMBA_BAUDRATE", 115200)
@@ -469,6 +471,10 @@ if __name__ == "__main__":
                         time.sleep(0.01)
             elif order == "audio_monitor":
                 #ascii_roomba = AsciiRoomba()
+                dropSounds = glob.glob("sounds/wheeldrop/*.wav")
+                cliffSounds = glob.glob("sounds/cliff/*.wav")
+                bumpSounds = glob.glob("sounds/bump/*.wav")
+                dirtSounds = glob.glob("sounds/dirtdetect/*.wav")
                 while True:
                     sensors = roomba.sensors
                     print ANSI_CLEAR
@@ -476,14 +482,18 @@ if __name__ == "__main__":
                     
                     assert(sensors is not None)
                     if sensors.wheel_drops.left or sensors.wheel_drops.right:
-                        print "wheel drop"
+                        print "wheel drop - " + random.choice(dropSounds)
+                        time.sleep(5)
                     elif sensors.cliff.left or sensors.cliff.front_left or \
                        sensors.cliff.front_right or sensors.cliff.right:
-                        print "cliff"
+                        print "cliff - " + random.choice(cliffSounds)
+                        time.sleep(5)
                     elif sensors.bumps.left or sensors.bumps.right:
-                        print "bump"
+                        print "bump - " + random.choice(bumpSounds)
+                        time.sleep(5)
                     elif sensors.dirt_detector.left or sensors.dirt_detector.right:
-                        print "dirt detect"
+                        print "dirt detect - " + random.choice(dropSounds)
+                        time.sleep(5)
                     
                     if not sys.stdout.isatty():
                         time.sleep(1)
