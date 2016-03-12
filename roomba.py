@@ -475,14 +475,14 @@ if __name__ == "__main__":
                     #ascii_roomba.display(sensors)
                     
                     assert(sensors is not None)
-                    if sensors.wheel_drops.left or sensors.wheel_drops.right
+                    if sensors.wheel_drops.left or sensors.wheel_drops.right:
                         print "wheel drop"
                     elif sensors.cliff.left or sensors.cliff.front_left or \
-                       sensors.cliff.front_right or sensors.cliff.right
+                       sensors.cliff.front_right or sensors.cliff.right:
                         print "cliff"
-                    elif sensors.bumps.left or sensors.bumps.right
+                    elif sensors.bumps.left or sensors.bumps.right:
                         print "bump"
-                    elif sensors.dirt_detector.left or sensors.dirt_detector.right
+                    elif sensors.dirt_detector.left or sensors.dirt_detector.right:
                         print "dirt detect"
                     
                     if not sys.stdout.isatty():
