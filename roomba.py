@@ -497,7 +497,7 @@ if __name__ == "__main__":
                         print "dirt detect - " + sound
                     
                     if sound is not None:
-                        call(["aplay",sound,"-T 2000000"])
+                        call(["aplay",sound,"-T","2000000"])
                         time.sleep(5)
                         
                     if not sys.stdout.isatty():
@@ -510,7 +510,7 @@ if __name__ == "__main__":
                 usage()
                 sys.exit(2)
             print ""
-        if verbose:
+        if verbose:aplay
             print "Done"
     finally:
         roomba.close()
