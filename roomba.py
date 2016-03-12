@@ -510,7 +510,7 @@ if __name__ == "__main__":
                 usage()
                 sys.exit(2)
             print ""
-        if verbose:aplay
+        if verbose:
             print "Done"
     finally:
         roomba.close()
