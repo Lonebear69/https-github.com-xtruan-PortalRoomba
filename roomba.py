@@ -481,20 +481,25 @@ if __name__ == "__main__":
                     #ascii_roomba.display(sensors)
                     
                     assert(sensors is not None)
+                    sound = None
                     if sensors.wheel_drops.left or sensors.wheel_drops.right:
-                        print "wheel drop - " + random.choice(dropSounds)
-                        time.sleep(5)
+                        sound = random.choice(dropSounds)
+                        print "wheel drop - " + sound
                     elif sensors.cliff.left or sensors.cliff.front_left or \
                        sensors.cliff.front_right or sensors.cliff.right:
-                        print "cliff - " + random.choice(cliffSounds)
-                        time.sleep(5)
+                        sound = random.choice(cliffSounds)
+                        print "cliff - " + sound
                     elif sensors.bumps.left or sensors.bumps.right:
-                        print "bump - " + random.choice(bumpSounds)
-                        time.sleep(5)
+                        sound = random.choice(bumpSounds)
+                        print "bump - " + sound
                     elif sensors.dirt_detector.left or sensors.dirt_detector.right:
-                        print "dirt detect - " + random.choice(dropSounds)
-                        time.sleep(5)
+                        sound = random.choice(dirtSounds)
+                        print "dirt detect - " + sound
                     
+                    if sound is not None:
+                        call(["aplay",sound,"-T 2000000"])
+                        time.sleep(5)
+                        
                     if not sys.stdout.isatty():
                         time.sleep(1)
                     else:
