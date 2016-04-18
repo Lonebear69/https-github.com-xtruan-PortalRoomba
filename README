@@ -1,3 +1,7 @@
+Fun little project to give an iRobot Roomba the mannerisms of a Portal Turret
+
+Forked from PyRoomba and modified to run without Rootooth, and on a NextThing Co CHIP
+
 RoombaSCI.py:
     Python API to control the Roomba
   2008(c) K Jacobson
